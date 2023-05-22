@@ -96,6 +96,13 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update \
     && cd /opt/matlab/extern/engines/python \
     && python setup.py install || true
 
+# Install GIT for CodeSpaces
+RUN export DEBIAN_FRONTEND=noninteractive && apt-get update \
+    && apt-get install --no-install-recommends -y  git \
+    && apt-get clean \
+    && apt-get -y autoremove \
+    && rm -rf /var/lib/apt/lists/*
+
 # Switch back to notebook user
 USER $NB_USER
 WORKDIR /home/${NB_USER}

@@ -14,8 +14,9 @@
   ],
   "waitFor": "onCreateCommand",
   // "updateContentCommand": "python3 -m pip install -r requirements.txt",
-  "postCreateCommand": "apt-get install -y git",
-  "postStartCommand": "jupyter lab -NotebookApp.allow_origin_pat=\".*${CODESPACE_NAME}.*\"",
+  // "postCreateCommand": "apt-get install -y git",
+  "updateContentCommand": "sed -i 's/.*c.NotebookApp.allow_origin_pat.*/c.NotebookApp.allow_origin_pat = \".*${CODESPACE_NAME}.*\"/g' ~/.jupyter/jupyter_notebook_config.py",
+  "postStartCommand": "jupyter lab &",
   "customizations": {
     "codespaces": {
       "openFiles": []
