@@ -1,16 +1,21 @@
 {
   "build": {
-     "dockerfile": "Dockerfile",
-     "args": {"MATLAB_PRODUCT_LIST":"MATLAB Symbolic_Math_Toolbox"}
+    "dockerfile": "Dockerfile",
+    "args": {
+      "MATLAB_PRODUCT_LIST": "MATLAB Symbolic_Math_Toolbox"
+    }
   },
   // "image": "mcr.microsoft.com/devcontainers/universal:2",
   "hostRequirements": {
     "cpus": 4
   },
-  "forwardPorts": [8888],
+  "forwardPorts": [
+    8888
+  ],
   "waitFor": "onCreateCommand",
   // "updateContentCommand": "python3 -m pip install -r requirements.txt",
-  "postCreateCommand": "",
+  "postCreateCommand": "apt-get install -y git",
+  "postStartCommand": "jupyter lab -NotebookApp.allow_origin_pat=\".*${CODESPACE_NAME}.*\"",
   "customizations": {
     "codespaces": {
       "openFiles": []
