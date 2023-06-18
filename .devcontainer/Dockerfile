@@ -10,6 +10,9 @@
 #              --build-arg LICENSE_SERVER=12345@hostname.com \
 #              -t my_matlab_image_name .
 
+docker image prune
+docker container prune
+
 # Specify release of MATLAB to build. (use lowercase, default is r2023a)
 ARG MATLAB_RELEASE=r2023a
 
