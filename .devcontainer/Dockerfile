@@ -10,9 +10,6 @@
 #              --build-arg LICENSE_SERVER=12345@hostname.com \
 #              -t my_matlab_image_name .
 
-docker image prune
-docker container prune
-
 # Specify release of MATLAB to build. (use lowercase, default is r2023a)
 ARG MATLAB_RELEASE=r2023a
 
@@ -76,6 +73,9 @@ RUN wget -q https://www.mathworks.com/mpm/glnxa64/mpm && \
     --products ${MATLAB_PRODUCT_LIST} && \
     rm -f mpm /tmp/mathworks_root.log && \
     ln -s /opt/matlab/bin/matlab /usr/local/bin/matlab
+
+RUN docker image prune
+RUN docker container prune
 
 # Install patched glibc - See https://github.com/mathworks/build-glibc-bz-19329-patch
 WORKDIR /packages
