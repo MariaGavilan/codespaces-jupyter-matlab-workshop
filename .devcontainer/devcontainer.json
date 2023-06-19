@@ -2,7 +2,7 @@
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
-      "MATLAB_PRODUCT_LIST": "MATLAB Deep_Learning_Toolbox Image_Processing_Toolbox Simulink Statistics_and_Machine_Learning_Toolbox"
+      "MATLAB_PRODUCT_LIST": "MATLAB Deep_Learning_Toolbox Image_Processing_Toolbox Statistics_and_Machine_Learning_Toolbox"
     }
   },
   // "image": "mcr.microsoft.com/devcontainers/universal:2",
