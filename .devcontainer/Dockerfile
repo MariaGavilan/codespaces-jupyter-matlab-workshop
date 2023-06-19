@@ -74,9 +74,6 @@ RUN wget -q https://www.mathworks.com/mpm/glnxa64/mpm && \
     rm -f mpm /tmp/mathworks_root.log && \
     ln -s /opt/matlab/bin/matlab /usr/local/bin/matlab
 
-RUN docker image prune
-RUN docker container prune
-
 # Install patched glibc - See https://github.com/mathworks/build-glibc-bz-19329-patch
 WORKDIR /packages
 RUN export DEBIAN_FRONTEND=noninteractive && \
