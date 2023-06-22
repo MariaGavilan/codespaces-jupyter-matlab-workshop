@@ -110,7 +110,9 @@ WORKDIR /home/${NB_USER}
 # Install integration
 RUN python -m pip install jupyter-matlab-proxy
 
-
+# Install couple of additional packages
+RUN python -m pip install numpy
+RUN python -m pip install opencv-python
 
 # Make JupyterLab the default environment
 ENV JUPYTER_ENABLE_LAB="yes"
