@@ -16,7 +16,6 @@
   // "updateContentCommand": "python3 -m pip install -r requirements.txt",
   // "postCreateCommand": "apt-get install -y git",
   "updateContentCommand": "sed -i 's/.*c.NotebookApp.allow_origin_pat.*/import os; c.NotebookApp.allow_origin_pat = \".*\" + os.getenv(\"CODESPACE_NAME\") + \".*\"/g' ~/.jupyter/jupyter_notebook_config.py",
-  "postStartCommand": "python3 -m pip install -r requirements.txt",
   // "postStartCommand": "jupyter lab &",
   "customizations": {
     "codespaces": {
