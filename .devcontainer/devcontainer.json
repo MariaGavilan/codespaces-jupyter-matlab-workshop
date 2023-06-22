@@ -2,7 +2,7 @@
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
-      "MATLAB_PRODUCT_LIST": "MATLAB Deep_Learning_Toolbox Image_Processing_Toolbox Statistics_and_Machine_Learning_Toolbox"
+      "MATLAB_PRODUCT_LIST": "MATLAB Curve_Fitting_Toolbox Deep_Learning_Toolbox Image_Processing_Toolbox Statistics_and_Machine_Learning_Toolbox"
     }
   },
   // "image": "mcr.microsoft.com/devcontainers/universal:2",
@@ -16,6 +16,7 @@
   // "updateContentCommand": "python3 -m pip install -r requirements.txt",
   // "postCreateCommand": "apt-get install -y git",
   "updateContentCommand": "sed -i 's/.*c.NotebookApp.allow_origin_pat.*/import os; c.NotebookApp.allow_origin_pat = \".*\" + os.getenv(\"CODESPACE_NAME\") + \".*\"/g' ~/.jupyter/jupyter_notebook_config.py",
+  "postStartCommand": "python3 -m pip install -r requirements.txt",
   // "postStartCommand": "jupyter lab &",
   "customizations": {
     "codespaces": {
